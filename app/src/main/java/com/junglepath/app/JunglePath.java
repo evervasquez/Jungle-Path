@@ -8,6 +8,11 @@ import com.junglepath.app.Login.di.LoginComponent;
 import com.junglepath.app.Login.di.LoginModule;
 import com.junglepath.app.Login.ui.LoginView;
 import com.junglepath.app.libs.di.LibsModule;
+import com.junglepath.app.main.OnItemClickListener;
+import com.junglepath.app.main.di.MainComponent;
+import com.junglepath.app.main.di.MainModule;
+import com.junglepath.app.main.ui.MainActivity;
+import com.junglepath.app.main.ui.MainView;
 
 public class JunglePath extends Application{
 
@@ -30,12 +35,12 @@ public class JunglePath extends Application{
                 .build();
     }
 
-//    public MainComponent getMainComponent(MainView view, MainActivity activity, OnItemClickListener listener){
-//        return DaggerMainComponent
-//                .builder()
-//                .mainModule(new MainModule(view, listener))
-//                .libsModule(new LibsModule(null, activity))
-//                .build();
-//    }
+    public MainComponent getMainComponent(MainView view, MainActivity activity, OnItemClickListener listener){
+        return DaggerMainComponent
+                .builder()
+                .mainModule(new MainModule(view, listener))
+                .libsModule(new LibsModule(null, activity))
+                .build();
+    }
 
 }
