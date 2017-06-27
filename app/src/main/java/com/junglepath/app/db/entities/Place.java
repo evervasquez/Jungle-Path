@@ -1,22 +1,4 @@
-/*
- *
- *  * Copyright (C) 2016 eveR Vásquez.
- *  *
- *  * Licensed under the Apache License, Version 2.0 (the "License");
- *  * you may not use this file except in compliance with the License.
- *  * You may obtain a copy of the License at
- *  *
- *  *      http://www.apache.org/licenses/LICENSE-2.0
- *  *
- *  * Unless required by applicable law or agreed to in writing, software
- *  * distributed under the License is distributed on an "AS IS" BASIS,
- *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  * See the License for the specific language governing permissions and
- *  * limitations under the License.
- *
- */
 package com.junglepath.app.db.entities;
-
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -25,8 +7,8 @@ public class Place implements Parcelable {
     private String descripcion;
     private String direccion;
     private String imagen;
-    private Double latitude;
-    private Double longitud;
+    private String latitude;
+    private String longitud;
     private String nombre;
     private String telefono;
 
@@ -54,19 +36,19 @@ public class Place implements Parcelable {
         this.imagen = imagen;
     }
 
-    public Double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public Double getLongitud() {
+    public String getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(Double longitud) {
+    public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
 
@@ -86,6 +68,7 @@ public class Place implements Parcelable {
         this.telefono = telefono;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -96,8 +79,8 @@ public class Place implements Parcelable {
         dest.writeString(this.descripcion);
         dest.writeString(this.direccion);
         dest.writeString(this.imagen);
-        dest.writeValue(this.latitude);
-        dest.writeValue(this.longitud);
+        dest.writeString(this.latitude);
+        dest.writeString(this.longitud);
         dest.writeString(this.nombre);
         dest.writeString(this.telefono);
     }
@@ -109,8 +92,8 @@ public class Place implements Parcelable {
         this.descripcion = in.readString();
         this.direccion = in.readString();
         this.imagen = in.readString();
-        this.latitude = (Double) in.readValue(Double.class.getClassLoader());
-        this.longitud = (Double) in.readValue(Double.class.getClassLoader());
+        this.latitude = in.readString();
+        this.longitud = in.readString();
         this.nombre = in.readString();
         this.telefono = in.readString();
     }

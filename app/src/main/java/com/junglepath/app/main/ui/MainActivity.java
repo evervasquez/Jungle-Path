@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements MainView, OnItemC
             if(result.size() == 0){
                 Snackbar.make(activityMain, "El producto no se ha encontrado", Snackbar.LENGTH_LONG).show();
             }else{
-                Snackbar.make(activityMain, String.format("El producto se ha encontrado en %d farmacias", result.size()), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(activityMain, String.format("El producto se ha encontrado en %d lugar", result.size()), Snackbar.LENGTH_LONG).show();
             }
         } catch (NotFoundPharmaciesException e) {
             Snackbar.make(activityMain, e.getMessage(), Snackbar.LENGTH_SHORT).show();
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements MainView, OnItemC
 
     private void verifyPharmacies() throws NotFoundPharmaciesException {
         if (placeList == null) {
-            throw new NotFoundPharmaciesException("Espere mientras se cargan las farmacias");
+            throw new NotFoundPharmaciesException("Espere mientras se cargan los lugares");
         }
     }
 
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements MainView, OnItemC
             List<Place> pharmaciesByLocation = filterByLongitude(placeList, latitude, longitude);
             setItems(pharmaciesByLocation);
             Snackbar.make(activityMain,
-                    String.format("Se han encontrado %d farmacias a %s metros", pharmaciesByLocation.size(),
+                    String.format("Se han encontrado %d Lugares a %s metros", pharmaciesByLocation.size(),
                             getPreference()) , Snackbar.LENGTH_LONG).show();
         } catch (NotFoundPharmaciesException e) {
             Snackbar.make(activityMain, e.getMessage(), Snackbar.LENGTH_SHORT).show();
@@ -349,7 +349,8 @@ public class MainActivity extends AppCompatActivity implements MainView, OnItemC
             boolean status = false;
             try {
                 float[] results = new float[1];
-                Location.distanceBetween(latitude, longitude, place.getLatitude(), place.getLongitud(), results);
+                Location.distanceBetween(latitude, longitude, Double.parseDouble(place.getLatitude()),
+                        Double.parseDouble(place.getLongitud()), results);
                 float distanceInMeters = results[0];
                 if (distanceInMeters < getPreference()) {
                     status = true;

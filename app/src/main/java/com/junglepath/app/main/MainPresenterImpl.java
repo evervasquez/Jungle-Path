@@ -27,7 +27,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void onResume() {
-        interactor.getListPharmacies();
+        interactor.getListPlaces();
     }
 
     @Override

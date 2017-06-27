@@ -9,6 +9,7 @@ import com.junglepath.app.Login.di.LoginModule;
 import com.junglepath.app.Login.ui.LoginView;
 import com.junglepath.app.libs.di.LibsModule;
 import com.junglepath.app.main.OnItemClickListener;
+import com.junglepath.app.main.di.DaggerMainComponent;
 import com.junglepath.app.main.di.MainComponent;
 import com.junglepath.app.main.di.MainModule;
 import com.junglepath.app.main.ui.MainActivity;

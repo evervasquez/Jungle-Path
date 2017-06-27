@@ -27,8 +27,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.junglepath.app.JunglePath;
 import com.junglepath.app.Login.LoginPresenter;
-import com.junglepath.app.MainActivity;
 import com.junglepath.app.R;
+import com.junglepath.app.main.ui.MainActivity;
 
 import javax.inject.Inject;
 

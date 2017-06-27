@@ -1,5 +1,7 @@
 package com.junglepath.app.main;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,25 +28,28 @@ public class MainRepositoryImpl implements MainRepository {
     }
 
     @Override
-    public void getListPharmacies() {
+    public void getListPlaces() {
         saveListPharmacies();
     }
 
     private void saveListPharmacies() {
         final FirebaseDatabase database = helper.getDataReference();
-        DatabaseReference myRef = database.getReference("pharmacies");
+        DatabaseReference myRef = database.getReference("places");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot pharmacySnapshot : dataSnapshot.getChildren()) {
-                    placeList.add(pharmacySnapshot.getValue(Place.class));
+                for (DataSnapshot placeSnapshot : dataSnapshot.getChildren()) {
+                    for (DataSnapshot child : placeSnapshot.getChildren()) {
+                        placeList.add(child.getValue(Place.class));
+                    }
                 }
                 postEvent(MainEvent.LIST_SUCCESS, placeList, null);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                Log.i(TAG, "onCancelled: ");
                 postEvent(MainEvent.LIST_ERROR, databaseError.getMessage());
             }
         });

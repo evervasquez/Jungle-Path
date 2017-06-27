@@ -8,7 +8,7 @@ public class MainInteractorImpl implements MainInteractor{
     }
 
     @Override
-    public void getListPharmacies() {
-        this.repository.getListPharmacies();
+    public void getListPlaces() {
+        this.repository.getListPlaces();
     }
 }
