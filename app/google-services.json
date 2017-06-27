@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1063083486002",
+    "firebase_url": "https://junglepath-b0a53.firebaseio.com",
+    "project_id": "junglepath-b0a53",
+    "storage_bucket": "junglepath-b0a53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063083486002:android:1be4ab3cb5519d0e",
+        "android_client_info": {
+          "package_name": "com.junglepath.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063083486002-cnr9vhgp68sidgrrbgq0nv275er9ompb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.junglepath.app",
+            "certificate_hash": "455acb25d8cddbbb5c83037fce716fef2b02ba11"
+          }
+        },
+        {
+          "client_id": "1063083486002-hgdldtjhenn22gnf7fmlu45827vjsv5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE4OcLfA_j0E-bf9iJiaNMxvUmbKmKErw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063083486002-hgdldtjhenn22gnf7fmlu45827vjsv5f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
