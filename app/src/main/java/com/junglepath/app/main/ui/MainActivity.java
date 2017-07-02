@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.junglepath.app.JunglePath;
 import com.junglepath.app.Login.ui.LoginActivity;
 import com.junglepath.app.NotFoundPharmaciesException;
+import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.db.entities.Place;
 import com.junglepath.app.main.MainPresenter;
 import com.junglepath.app.main.OnItemClickListener;
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements MainView, OnItemC
     PlaceAdapter adapter;
 
     private List<Place> placeList;
+
+    private List<Category> categories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -246,11 +249,6 @@ public class MainActivity extends AppCompatActivity implements MainView, OnItemC
 
     }
 
-    @Override
-    public void showListPharmacies(List<Place> places) {
-        this.placeList = places;
-        setItems(places);
-    }
 
     private void setItems(List<Place> places) {
         adapter.clearList();
@@ -259,7 +257,13 @@ public class MainActivity extends AppCompatActivity implements MainView, OnItemC
     }
 
     @Override
-    public void showListPharmaciesErrors(String messageError) {
+    public void showCategories(List<Category> categories) {
+        this.placeList = places;
+        setItems(places);
+    }
+
+    @Override
+    public void showCategoriesErrors(String messageError) {
         Snackbar.make(activityMain, getString(R.string.pharmacy_message_success), Snackbar.LENGTH_SHORT).show();
     }
 

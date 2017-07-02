@@ -1,5 +1,6 @@
 package com.junglepath.app.main.ui;
 
+import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.db.entities.Place;
 
 import java.util.List;
@@ -12,9 +13,9 @@ public interface MainView {
 
     void hideProgress();
 
-    void showListPharmacies(List<Place> places);
+    void showCategories(List<Category> categories);
 
-    void showListPharmaciesErrors(String messageError);
+    void showCategoriesErrors(String messageError);
 
     void hideElements();
 

@@ -1,5 +1,5 @@
 package com.junglepath.app.main;
-import com.junglepath.app.db.entities.Place;
+import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.libs.base.EventBus;
 import com.junglepath.app.main.events.MainEvent;
 import com.junglepath.app.main.ui.MainView;
@@ -50,18 +50,18 @@ public class MainPresenterImpl implements MainPresenter {
     public void handleSubscriber(MainEvent event) {
         switch (event.getEventType()) {
             case MainEvent.LIST_SUCCESS:
-                showListPharmacies(event.getPlaceList());
+                showListCategories(event.getCategories());
                 break;
             case MainEvent.LIST_ERROR:
-                view.showListPharmaciesErrors(event.getErrorMessage());
+                view.showCategoriesErrors(event.getErrorMessage());
                 break;
         }
     }
 
-    public void showListPharmacies(List<Place> places) {
+    public void showListCategories(List<Category> categories) {
         view.hideElements();
         view.showProgress();
-        view.showListPharmacies(places);
+        view.showCategories(categories);
         view.hideProgress();
         view.showElements();
     }

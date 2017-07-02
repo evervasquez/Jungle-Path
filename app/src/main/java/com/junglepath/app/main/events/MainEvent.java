@@ -1,22 +1,23 @@
 package com.junglepath.app.main.events;
 
+import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.db.entities.Place;
 import java.util.List;
 
 public class MainEvent {
     public final static int LIST_SUCCESS = 1;
     public final static int LIST_ERROR = 0;
-    private List<Place> placeList;
+    private List<Category> categories;
 
     private int eventType;
     private String errorMessage;
 
-    public List<Place> getPlaceList() {
-        return placeList;
+    public List<Category> getCategories() {
+        return categories;
     }
 
-    public void setPlaceList(List<Place> placeList) {
-        this.placeList = placeList;
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
     public int getEventType() {

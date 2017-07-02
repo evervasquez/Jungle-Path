@@ -7,6 +7,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.db.entities.Place;
 import com.junglepath.app.domain.FirebaseDatabaseHelper;
 import com.junglepath.app.libs.base.EventBus;
@@ -19,8 +20,7 @@ public class MainRepositoryImpl implements MainRepository {
     private static final String TAG = MainRepositoryImpl.class.getSimpleName();
     private EventBus eventBus;
     private FirebaseDatabaseHelper helper;
-    private List<Map<String, Object>> listPharmacies = new ArrayList<>();
-    private List<Place> placeList = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
 
     public MainRepositoryImpl(EventBus eventBus, FirebaseDatabaseHelper helper) {
         this.eventBus = eventBus;
@@ -40,11 +40,13 @@ public class MainRepositoryImpl implements MainRepository {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot placeSnapshot : dataSnapshot.getChildren()) {
-                    for (DataSnapshot child : placeSnapshot.getChildren()) {
-                        placeList.add(child.getValue(Place.class));
-                    }
+                    categories.add(placeSnapshot.getValue(Category.class));
                 }
-                postEvent(MainEvent.LIST_SUCCESS, placeList, null);
+
+                for (Category category : categories){
+                    Log.i(TAG, "showCategories: " + category.getPlaces());
+                }
+                postEvent(MainEvent.LIST_SUCCESS, categories, null);
             }
 
             @Override
@@ -56,7 +58,7 @@ public class MainRepositoryImpl implements MainRepository {
 
     }
 
-    private void postEvent(int type, List<Place> places, String errorMessage) {
+    private void postEvent(int type, List<Category> category, String errorMessage) {
         MainEvent productEvent = new MainEvent();
         productEvent.setEventType(type);
 
@@ -64,8 +66,8 @@ public class MainRepositoryImpl implements MainRepository {
             productEvent.setErrorMessage(errorMessage);
         }
 
-        if (places != null) {
-            productEvent.setPlaceList(places);
+        if (category != null) {
+            productEvent.setCategories(category);
         }
         eventBus.post(productEvent);
     }
