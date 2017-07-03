@@ -18,7 +18,6 @@ package com.junglepath.app.main.ui.adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +44,14 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
         mFragmentTitleList.add(title);
     }
 
+    public void clear(){
+        mFragmentList.clear();
+        mFragmentTitleList.clear();
+    }
+
     @Override
     public CharSequence getPageTitle(int position) {
         return mFragmentTitleList.get(position);
     }
+
 }

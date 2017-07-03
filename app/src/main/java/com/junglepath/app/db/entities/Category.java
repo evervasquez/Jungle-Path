@@ -17,11 +17,12 @@ package com.junglepath.app.db.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 
 public class Category implements Parcelable {
     private String nombre;
+
+    private int id;
 
     private List<Place> places;
 
@@ -41,6 +42,14 @@ public class Category implements Parcelable {
         this.places = places;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     @Override
     public int describeContents() {
@@ -50,6 +59,7 @@ public class Category implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.nombre);
+        dest.writeInt(this.id);
         dest.writeTypedList(this.places);
     }
 
@@ -58,10 +68,11 @@ public class Category implements Parcelable {
 
     protected Category(Parcel in) {
         this.nombre = in.readString();
+        this.id = in.readInt();
         this.places = in.createTypedArrayList(Place.CREATOR);
     }
 
-    public static final Parcelable.Creator<Category> CREATOR = new Parcelable.Creator<Category>() {
+    public static final Creator<Category> CREATOR = new Creator<Category>() {
         @Override
         public Category createFromParcel(Parcel source) {
             return new Category(source);

@@ -10,26 +10,8 @@
         app:showAsAction="ifRoom|collapseActionView" />
 
     <item
-        android:id="@+id/action_location"
-        android:icon="@mipmap/ic_my_location_white_24dp"
-        android:title="@string/location"
-        app:showAsAction="always" />
-
-    <item
-        android:id="@+id/action_reset"
-        android:orderInCategory="100"
-        android:title="@string/main.text.reset"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/action_logout"
         android:orderInCategory="200"
         android:title="@string/main.text.logout"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_config"
-        android:orderInCategory="99"
-        android:title="@string/main.text.config"
         app:showAsAction="never" />
 </menu>

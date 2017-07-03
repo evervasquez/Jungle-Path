@@ -6,6 +6,7 @@ import com.junglepath.app.main.ui.MainView;
 
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainPresenterImpl implements MainPresenter {
@@ -58,7 +59,7 @@ public class MainPresenterImpl implements MainPresenter {
         }
     }
 
-    public void showListCategories(List<Category> categories) {
+    public void showListCategories(ArrayList<Category> categories) {
         view.hideElements();
         view.showProgress();
         view.showCategories(categories);

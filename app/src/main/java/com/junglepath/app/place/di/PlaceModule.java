@@ -18,7 +18,6 @@ package com.junglepath.app.place.di;
 import com.junglepath.app.db.entities.Place;
 import com.junglepath.app.libs.base.ImageLoader;
 import com.junglepath.app.place.OnItemClickListener;
-import com.junglepath.app.place.PlaceInteractor;
 import com.junglepath.app.place.PlacePresenter;
 import com.junglepath.app.place.PlacePresenterImpl;
 import com.junglepath.app.place.ui.PlaceView;

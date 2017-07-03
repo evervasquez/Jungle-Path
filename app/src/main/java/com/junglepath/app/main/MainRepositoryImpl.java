@@ -20,7 +20,7 @@ public class MainRepositoryImpl implements MainRepository {
     private static final String TAG = MainRepositoryImpl.class.getSimpleName();
     private EventBus eventBus;
     private FirebaseDatabaseHelper helper;
-    private List<Category> categories = new ArrayList<>();
+    ArrayList<Category> categories;
 
     public MainRepositoryImpl(EventBus eventBus, FirebaseDatabaseHelper helper) {
         this.eventBus = eventBus;
@@ -33,6 +33,8 @@ public class MainRepositoryImpl implements MainRepository {
     }
 
     private void saveListPharmacies() {
+        categories = new ArrayList<>();
+
         final FirebaseDatabase database = helper.getDataReference();
         DatabaseReference myRef = database.getReference("places");
 
@@ -42,7 +44,6 @@ public class MainRepositoryImpl implements MainRepository {
                 for (DataSnapshot placeSnapshot : dataSnapshot.getChildren()) {
                     categories.add(placeSnapshot.getValue(Category.class));
                 }
-                Log.i(TAG, "onDataChange: " + categories);
                 postEvent(MainEvent.LIST_SUCCESS, categories, null);
             }
 
@@ -55,7 +56,7 @@ public class MainRepositoryImpl implements MainRepository {
 
     }
 
-    private void postEvent(int type, List<Category> category, String errorMessage) {
+    private void postEvent(int type, ArrayList<Category> category, String errorMessage) {
         MainEvent productEvent = new MainEvent();
         productEvent.setEventType(type);
 

@@ -1,5 +1,6 @@
 package com.junglepath.app.place.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,24 +9,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.junglepath.app.JunglePath;
 import com.junglepath.app.R;
+import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.db.entities.Place;
+import com.junglepath.app.detail.ui.DetailActivity;
 import com.junglepath.app.place.OnItemClickListener;
 import com.junglepath.app.place.PlacePresenter;
 import com.junglepath.app.place.ui.adapters.PlaceAdapter;
-
-import java.util.List;
-
 import javax.inject.Inject;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class PlaceFragment extends Fragment implements PlaceView, OnItemClickListener {
     private static final String TAG = PlaceFragment.class.getSimpleName();
-    private static List<Place> placeList;
+    private static final String ARG_CATEGORY = "places";
+    public static final String ARG_PLACE = "place";
+    private Category category;
 
     @Inject
     PlaceAdapter adapter;
@@ -45,12 +45,20 @@ public class PlaceFragment extends Fragment implements PlaceView, OnItemClickLis
         // Required empty public constructor
     }
 
-    public static PlaceFragment newInstance(List<Place> places) {
+    public static PlaceFragment newInstance(Category category) {
         PlaceFragment fragment = new PlaceFragment();
-        placeList = places;
         Bundle args = new Bundle();
+        args.putParcelable(ARG_CATEGORY, category);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    //    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            category = getArguments().getParcelable(ARG_CATEGORY);
+        }
     }
 
     @Override
@@ -68,7 +76,8 @@ public class PlaceFragment extends Fragment implements PlaceView, OnItemClickLis
     public void initComponents() {
         mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-        adapter.setItems(placeList);
+        adapter.clearList();
+        adapter.setItems(category.getPlaces());
         recyclerView.setAdapter(adapter);
     }
 
@@ -78,6 +87,12 @@ public class PlaceFragment extends Fragment implements PlaceView, OnItemClickLis
 
     @Override
     public void onItemClick(Place place) {
-        Log.i(TAG, "onItemClick: " + place.getNombre());
+        navigationToDetail(place);
+    }
+
+    private void navigationToDetail(Place place){
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
+        intent.putExtra(ARG_PLACE, place);
+        startActivity(intent);
     }
 }

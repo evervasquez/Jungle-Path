@@ -1,21 +1,23 @@
 package com.junglepath.app.main.events;
 
 import com.junglepath.app.db.entities.Category;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainEvent {
     public final static int LIST_SUCCESS = 1;
     public final static int LIST_ERROR = 0;
-    private List<Category> categories;
+    private ArrayList<Category> categories;
 
     private int eventType;
     private String errorMessage;
 
-    public List<Category> getCategories() {
+    public ArrayList<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Category> categories) {
+    public void setCategories(ArrayList<Category> categories) {
         this.categories = categories;
     }
 

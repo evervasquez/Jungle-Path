@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,16 +34,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainView{
     private static final String TAG = MainActivity.class.getSimpleName();
-
+    private ViewPagerAdapter adapter;
     public static final int RESULT_OK = 1;
     public static final int RESULT_CANCELED = 0;
     public static final String PREFERENCES_DISTANCE = "PREFERENCES_DISTANCE";
 
     @Bind(R.id.activity_main)
     RelativeLayout activityMain;
-
-//    @Bind(R.id.recyclerView)
-//    RecyclerView recyclerView;
 
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
@@ -54,17 +52,9 @@ public class MainActivity extends AppCompatActivity implements MainView{
     TabLayout tabLayout;
 
     private JunglePath app;
-//    LinearLayoutManager mLayoutManager;
 
     @Inject
     MainPresenter presenter;
-
-//    @Inject
-//    PlaceAdapter adapter;
-
-    private List<Place> placeList;
-
-    private List<Category> categories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,15 +147,6 @@ public class MainActivity extends AppCompatActivity implements MainView{
             case R.id.action_logout:
                 logout();
                 return true;
-            case R.id.action_location:
-//                getLocation();
-                return true;
-            case R.id.action_reset:
-                setItems(placeList);
-                return true;
-            case R.id.action_config:
-
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -216,8 +197,6 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     @Override
     public void initComponents() {
-//        mLayoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(mLayoutManager);
         setTitle(getString(R.string.pharmacy_text_title));
     }
 
@@ -251,23 +230,15 @@ public class MainActivity extends AppCompatActivity implements MainView{
     }
 
 
-    private void setItems(List<Place> places) {
-//        adapter.clearList();
-//        adapter.setItems(places);
-//        recyclerView.setAdapter(adapter);
-    }
-
     @Override
-    public void showCategories(List<Category> categories) {
-        this.categories = categories;
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        for(Category category: this.categories){
-            adapter.addFragment(PlaceFragment.newInstance(category.getPlaces()), category.getNombre());
+    public void showCategories(ArrayList<Category> categories) {
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.clear();
+        for(Category category: categories){
+            adapter.addFragment(PlaceFragment.newInstance(category), category.getNombre());
         }
 
         viewPager.setAdapter(adapter);
-
         tabLayout.setupWithViewPager(viewPager);
     }
 
