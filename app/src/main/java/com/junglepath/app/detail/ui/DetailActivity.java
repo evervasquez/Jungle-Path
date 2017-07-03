@@ -120,7 +120,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
     }
 
     private void navigateToMaps() {
-        String uri = String.format("google.navigation:q=%f,%f", current.getLatitude(),
+        String uri = String.format("google.navigation:q=%s,%s", current.getLatitude(),
                         current.getLongitud());
         Uri gmmIntentUri = Uri.parse(uri);
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
