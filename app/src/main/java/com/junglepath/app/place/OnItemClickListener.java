@@ -1,7 +1,7 @@
-package com.junglepath.app.main;
+package com.junglepath.app.place;
 
 import com.junglepath.app.db.entities.Place;
 
 public interface OnItemClickListener {
-    void onItemClick(Place pharmacy);
+    void onItemClick(Place place);
 }

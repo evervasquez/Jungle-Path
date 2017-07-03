@@ -1,4 +1,4 @@
-package com.junglepath.app.main.ui.adapters;
+package com.junglepath.app.place.ui.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.junglepath.app.db.entities.Place;
 import com.junglepath.app.libs.base.ImageLoader;
-import com.junglepath.app.main.OnItemClickListener;
+import com.junglepath.app.place.OnItemClickListener;
 import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;

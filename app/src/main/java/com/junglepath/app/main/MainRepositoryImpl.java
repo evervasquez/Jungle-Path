@@ -12,9 +12,9 @@ import com.junglepath.app.db.entities.Place;
 import com.junglepath.app.domain.FirebaseDatabaseHelper;
 import com.junglepath.app.libs.base.EventBus;
 import com.junglepath.app.main.events.MainEvent;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class MainRepositoryImpl implements MainRepository {
     private static final String TAG = MainRepositoryImpl.class.getSimpleName();
@@ -42,16 +42,13 @@ public class MainRepositoryImpl implements MainRepository {
                 for (DataSnapshot placeSnapshot : dataSnapshot.getChildren()) {
                     categories.add(placeSnapshot.getValue(Category.class));
                 }
-
-                for (Category category : categories){
-                    Log.i(TAG, "showCategories: " + category.getPlaces());
-                }
+                Log.i(TAG, "onDataChange: " + categories);
                 postEvent(MainEvent.LIST_SUCCESS, categories, null);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.i(TAG, "onCancelled: ");
+                Log.i(TAG, "onCancelled: " + databaseError.getMessage());
                 postEvent(MainEvent.LIST_ERROR, databaseError.getMessage());
             }
         });

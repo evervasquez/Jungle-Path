@@ -1,7 +1,6 @@
 package com.junglepath.app.main.events;
 
 import com.junglepath.app.db.entities.Category;
-import com.junglepath.app.db.entities.Place;
 import java.util.List;
 
 public class MainEvent {
