@@ -87,6 +87,14 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_directions_white_24dp" />
 
+        <com.github.clans.fab.FloatingActionButton
+            style="@style/MenuButtonsSmall.Green"
+            android:id="@+id/share"
+            fab:fab_label="Compartir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_share_white_24dp" />
+
     </com.github.clans.fab.FloatingActionMenu>
 
 </android.support.design.widget.CoordinatorLayout>

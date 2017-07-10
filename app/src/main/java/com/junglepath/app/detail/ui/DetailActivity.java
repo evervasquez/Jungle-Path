@@ -4,8 +4,11 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionMenu;
 import com.junglepath.app.JunglePath;
@@ -26,6 +30,8 @@ import com.junglepath.app.libs.Utils;
 import com.junglepath.app.libs.base.ImageLoader;
 import com.junglepath.app.place.ui.PlaceFragment;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -44,6 +50,18 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
     ImageView image;
     @Bind(R.id.direction)
     FloatingActionMenu floatingActionMenu;
+
+    @Bind(R.id.text_description)
+    TextView text_description;
+
+    @Bind(R.id.text_direccion)
+    TextView text_direccion;
+
+    @Bind(R.id.text_telefono)
+    TextView text_telefono;
+
+    @Bind(R.id.share)
+    com.github.clans.fab.FloatingActionButton floatingShared;
 
     @Bind(R.id.call)
     com.github.clans.fab.FloatingActionButton floatingActionCall;
@@ -91,6 +109,24 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
                 call();
             }
         });
+
+        floatingShared.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shared();
+            }
+        });
+
+    }
+
+    private void shared(){
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBodyText = String.format("%s - %s -> %s" , current.getNombre(),
+                current.getDescripcion(), current.getImagen());
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"Subject here");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
+        startActivity(Intent.createChooser(sharingIntent, "Shearing Option"));
     }
 
     public static void verifyStoragePermissions(Activity activity) {
@@ -150,6 +186,10 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
         if (utils.verifyVersionMoreLollipop()) {
             verifyStoragePermissions(this);
         }
+
+        text_description.setText(current.getDescripcion());
+        text_direccion.setText(current.getDireccion());
+        text_telefono.setText(current.getTelefono());
     }
 
     private void initInjection() {

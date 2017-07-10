@@ -29,6 +29,8 @@ import com.junglepath.app.Login.LoginPresenter;
 import com.junglepath.app.R;
 import com.junglepath.app.main.ui.MainActivity;
 
+import java.util.Arrays;
+
 import javax.inject.Inject;
 
 import butterknife.Bind;
