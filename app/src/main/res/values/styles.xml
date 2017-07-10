@@ -38,8 +38,9 @@
     </style>
 
     <style name="YourTextAppareance" parent="TextAppearance.Design.Tab">
-        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">11sp</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
     </style>
 
     <style name="AppTabLayout" parent="Widget.Design.TabLayout">
