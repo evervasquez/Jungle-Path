@@ -127,18 +127,6 @@ public class MainActivity extends AppCompatActivity implements MainView,
         return super.onCreateOptionsMenu(menu);
     }
 
-//    private void resetPharmacies(int length) {
-//        try {
-//            if (length == 0) {
-//                verifyPharmacies();
-//                setItems(placeList);
-//            }
-//        } catch (NotFoundPharmaciesException e) {
-//            Snackbar.make(activityMain, e.getMessage(), Snackbar.LENGTH_SHORT).show();
-//        }
-//    }
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -159,10 +147,6 @@ public class MainActivity extends AppCompatActivity implements MainView,
         search_list.setAdapter(filterAdapter);
     }
 
-
-    private void refresh() {
-
-    }
 
     public void setupInjection() {
         app.getMainComponent(this, this, this, this).inject(this);
@@ -197,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements MainView,
         for (Category category : categories) {
             adapter.addFragment(PlaceFragment.newInstance(category), category.getNombre());
         }
-
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

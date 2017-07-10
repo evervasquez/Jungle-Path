@@ -20,6 +20,7 @@
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/com_facebook_button_background_color_disabled"
         app:tabMode="fixed"
+        style="@style/AppTabLayout"
         app:tabSelectedTextColor="@color/cardview_light_background"
         app:tabTextColor="@color/cardview_light_background" />
 
