@@ -47,7 +47,7 @@ public class PlaceModule {
     @Singleton
     @Provides
     PlaceAdapter providesPlaceAdapter(List<Place> places, ImageLoader imageLoader,
-                                         OnItemClickListener listener) {
+                                      OnItemClickListener listener) {
         return new PlaceAdapter(places, imageLoader, listener);
     }
 

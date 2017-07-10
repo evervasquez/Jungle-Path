@@ -80,7 +80,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
     private static final int REQUEST_CALL_PHONE = 1;
 
     Place current;
-
+    int code;
     private static String[] PERMISSIONS_APP = {
             Manifest.permission.CALL_PHONE,
     };
@@ -173,6 +173,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
+            setResult(code);
             finish();
         }
         return super.onOptionsItemSelected(item);
@@ -180,6 +181,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
 
     public void initComponents() {
         current = getIntent().getParcelableExtra(PlaceFragment.ARG_PLACE);
+        code = getIntent().getIntExtra("code", -1);
         imageLoader.load(image, current.getImagen());
         collapsing.setTitle(current.getNombre());
 
@@ -196,4 +198,9 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
         app.getDetailComponent(this, this).inject(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        setResult(code);
+        super.onBackPressed();
+    }
 }

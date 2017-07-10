@@ -1,6 +1,7 @@
 package com.junglepath.app;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.facebook.FacebookSdk;
 import com.junglepath.app.Login.di.DaggerLoginComponent;
@@ -13,6 +14,7 @@ import com.junglepath.app.detail.di.DetailModule;
 import com.junglepath.app.detail.ui.DetailActivity;
 import com.junglepath.app.detail.ui.DetailView;
 import com.junglepath.app.libs.di.LibsModule;
+import com.junglepath.app.main.ui.OnItemSearchClickListener;
 import com.junglepath.app.place.OnItemClickListener;
 import com.junglepath.app.main.di.DaggerMainComponent;
 import com.junglepath.app.main.di.MainComponent;
@@ -46,15 +48,18 @@ public class JunglePath extends Application{
                 .build();
     }
 
-    public MainComponent getMainComponent(MainView view, MainActivity activity){
+    public MainComponent getMainComponent(Context context, MainView view,
+                                          MainActivity activity,
+                                          OnItemSearchClickListener listener){
         return DaggerMainComponent
                 .builder()
-                .mainModule(new MainModule(view))
+                .mainModule(new MainModule(context, view, listener))
                 .libsModule(new LibsModule(null, activity))
                 .build();
     }
 
-    public PlaceComponent getPlaceComponent(PlaceView view, PlaceFragment fragment, OnItemClickListener listener){
+    public PlaceComponent getPlaceComponent(PlaceView view, PlaceFragment fragment,
+                                            OnItemClickListener listener){
         return DaggerPlaceComponent
                 .builder()
                 .placeModule(new PlaceModule(view, listener))

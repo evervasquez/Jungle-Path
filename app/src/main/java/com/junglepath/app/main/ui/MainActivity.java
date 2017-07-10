@@ -1,17 +1,22 @@
 package com.junglepath.app.main.ui;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.Location;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
@@ -21,19 +26,26 @@ import com.junglepath.app.JunglePath;
 import com.junglepath.app.Login.ui.LoginActivity;
 import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.db.entities.Place;
+import com.junglepath.app.detail.ui.DetailActivity;
 import com.junglepath.app.main.MainPresenter;
+
 import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
 import com.junglepath.app.R;
+import com.junglepath.app.main.ui.adapters.SearchableAdapter;
 import com.junglepath.app.main.ui.adapters.ViewPagerAdapter;
 import com.junglepath.app.place.ui.PlaceFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MainView{
+public class MainActivity extends AppCompatActivity implements MainView,
+        SearchView.OnQueryTextListener, OnItemSearchClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int SEARCH_TO_DETAIL = 0;
     private ViewPagerAdapter adapter;
     public static final int RESULT_OK = 1;
     public static final int RESULT_CANCELED = 0;
@@ -48,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements MainView{
     @Bind(R.id.viewpager)
     ViewPager viewPager;
 
+    @Bind(R.id.search_list)
+    ListView search_list;
+
     @Bind(R.id.tablayout)
     TabLayout tabLayout;
 
@@ -55,6 +70,13 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     @Inject
     MainPresenter presenter;
+
+    @Inject
+    SearchableAdapter filterAdapter;
+
+    SearchView searchView;
+
+    List<Place> placesListSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,21 +116,14 @@ public class MainActivity extends AppCompatActivity implements MainView{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        // Retrieve the SearchView and plug it into SearchManager
-//        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                getPharmaciesBySearch(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                resetPharmacies(newText.length());
-//                return false;
-//            }
-//        });
+        SearchManager searchManager = (SearchManager)
+                getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+
+        searchView.setSearchableInfo(searchManager.
+                getSearchableInfo(getComponentName()));
+        searchView.setSubmitButtonEnabled(true);
+        searchView.setOnQueryTextListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -123,22 +138,6 @@ public class MainActivity extends AppCompatActivity implements MainView{
 //        }
 //    }
 
-//    private void getPharmaciesBySearch(String query) {
-//        try {
-//            verifyPharmacies();
-//            List<Place> result = filter(placeList, query);
-//            setItems(result);
-//            if(result.size() == 0){
-//                Snackbar.make(activityMain, "El producto no se ha encontrado", Snackbar.LENGTH_LONG).show();
-//            }else{
-//                Snackbar.make(activityMain,
-//                        String.format("El producto se ha encontrado en %d lugar", result.size()),
-//                        Snackbar.LENGTH_LONG).show();
-//            }
-//        } catch (NotFoundPharmaciesException e) {
-//            Snackbar.make(activityMain, e.getMessage(), Snackbar.LENGTH_SHORT).show();
-//        }
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -152,52 +151,12 @@ public class MainActivity extends AppCompatActivity implements MainView{
         }
     }
 
-//    private void verifyPharmacies() throws NotFoundPharmaciesException {
-//        if (placeList == null) {
-//            throw new NotFoundPharmaciesException("Espere mientras se cargan los lugares");
-//        }
-//    }
-
-//    private void getLocation() {
-//        try {
-//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-//                    == PackageManager.PERMISSION_GRANTED) {
-//                LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//                Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//                double longitude = location.getLongitude();
-//                double latitude = location.getLatitude();
-//                if (longitude != -1 && latitude != -1) {
-//                    getPharmaciesByLongitude(latitude, longitude);
-//                }
-//            } else {
-//                ActivityCompat.requestPermissions(this,
-//                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-//                        1);
-//            }
-//        }catch (NullPointerException e){
-//            Snackbar.make(activityMain, "Debe habilitar sus permisos para el gps", Snackbar.LENGTH_SHORT).show();
-//        }
-//    }
-
-//    private void getPharmaciesByLongitude(double latitude, double longitude) {
-//        try {
-//            verifyPharmacies();
-//            List<Place> pharmaciesByLocation = filterByLongitude(placeList, latitude, longitude);
-//            setItems(pharmaciesByLocation);
-//            Snackbar.make(activityMain,
-//                    String.format("Se han encontrado %d Lugares a %s metros", pharmaciesByLocation.size(),
-//                            getPreference()) , Snackbar.LENGTH_LONG).show();
-//        } catch (NotFoundPharmaciesException e) {
-//            Snackbar.make(activityMain, e.getMessage(), Snackbar.LENGTH_SHORT).show();
-//        }
-//    }
-    //endregion
-
     //region MainView
 
     @Override
     public void initComponents() {
         setTitle(getString(R.string.pharmacy_text_title));
+        search_list.setAdapter(filterAdapter);
     }
 
 
@@ -206,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
     }
 
     public void setupInjection() {
-        app.getMainComponent(this, this).inject(this);
+        app.getMainComponent(this, this, this, this).inject(this);
     }
 
     @Override
@@ -232,14 +191,31 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     @Override
     public void showCategories(ArrayList<Category> categories) {
+        parseData(categories);
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.clear();
-        for(Category category: categories){
+        for (Category category : categories) {
             adapter.addFragment(PlaceFragment.newInstance(category), category.getNombre());
         }
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+
+    private void parseData(List<Category> categories) {
+        placesListSearch = new ArrayList<Place>();
+        for (Category category : categories) {
+            for (Place place : category.getPlaces()) {
+                placesListSearch.add(place);
+            }
+        }
+        initListView(placesListSearch);
+    }
+
+    private void initListView(List<Place> places) {
+        search_list.setVisibility(View.GONE);
+        filterAdapter.setItems(places);
     }
 
     @Override
@@ -263,13 +239,10 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-            if (resultCode == MainActivity.RESULT_OK) {
-                int result = data.getIntExtra("result", 0);
-                savePreference(result);
-            } else if (resultCode == MainActivity.RESULT_CANCELED) {
-                //Write your code if there's no result
-            }
+        Log.i(TAG, "onActivityResult: " + resultCode);
+        if (requestCode == SEARCH_TO_DETAIL){
+            searchView.setIconified(true);
+
         }
     }
 
@@ -290,54 +263,48 @@ public class MainActivity extends AppCompatActivity implements MainView{
         }
         return distance;
     }
-
-    //region FILTER
-
-    public List<Place> filter(List<Place> places, String query) {
-        List<Place> result = new ArrayList<Place>();
-        for (Place place : places) {
-//            boolean status = false;
-//            List<Medicines> medicines = pharmacy.getMedicines();
-//            for (Medicines medicine : medicines) {
-//                try {
-//                    if (medicine.getName().toLowerCase().contains(query)) {
-//                        status = true;
-//                    }
-//                } catch (NullPointerException e) {
-//                    break;
-//                }
-//            }
-//
-//            if (status) {
-//                result.add(pharmacy);
-//            }
-        }
-        return result;
-    }
-
-    public List<Place> filterByLongitude(List<Place> placeList, double latitude, double longitude) {
-        List<Place> result = new ArrayList<Place>();
-        for (Place place : placeList) {
-            boolean status = false;
-            try {
-                float[] results = new float[1];
-                Location.distanceBetween(latitude, longitude, Double.parseDouble(place.getLatitude()),
-                        Double.parseDouble(place.getLongitud()), results);
-                float distanceInMeters = results[0];
-                if (distanceInMeters < getPreference()) {
-                    status = true;
-                }
-            } catch (NullPointerException e) {
-                break;
-            }
-
-            if (status) {
-                result.add(place);
-            }
-        }
-        return result;
-    }
-
     //endregion
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+
+        if (newText.length() > 0) {
+            showSearchList();
+        } else {
+            hideSearchList();
+        }
+
+        filterAdapter.getFilter().filter(newText);
+        return false;
+    }
+
+    private void showSearchList() {
+        search_list.setBackgroundColor(Color.WHITE);
+        search_list.setVisibility(View.VISIBLE);
+    }
+
+    private void hideSearchList() {
+        search_list.setBackgroundColor(Color.TRANSPARENT);
+        search_list.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onClickSearch(Place place) {
+        navigationToDetail(place);
+    }
+
+
+    private void navigationToDetail(Place place) {
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(PlaceFragment.ARG_PLACE, place);
+        intent.putExtra("code", SEARCH_TO_DETAIL);
+        startActivityForResult(intent, SEARCH_TO_DETAIL);
+    }
 }
 

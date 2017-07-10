@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 
 public class PlaceFragment extends Fragment implements PlaceView, OnItemClickListener {
     private static final String TAG = PlaceFragment.class.getSimpleName();
+    private static final int FRAGMENT_TO_DETAIL = 1;
     private static final String ARG_CATEGORY = "places";
     public static final String ARG_PLACE = "place";
     private Category category;
@@ -93,6 +94,7 @@ public class PlaceFragment extends Fragment implements PlaceView, OnItemClickLis
     private void navigationToDetail(Place place){
         Intent intent = new Intent(getActivity(), DetailActivity.class);
         intent.putExtra(ARG_PLACE, place);
-        startActivity(intent);
+        intent.putExtra("code", FRAGMENT_TO_DETAIL);
+        startActivityForResult(intent, FRAGMENT_TO_DETAIL);
     }
 }
