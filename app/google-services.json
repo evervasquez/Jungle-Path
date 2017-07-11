@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1063083486002-1nq59emi96se6lhfih6d9ofegr2va2gl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.junglepath.app",
+            "certificate_hash": "f46ddb1c10a3a83f8d72a49735e2f15ddc110bfa"
+          }
+        },
+        {
           "client_id": "1063083486002-cnr9vhgp68sidgrrbgq0nv275er9ompb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -30,6 +38,9 @@
       "api_key": [
         {
           "current_key": "AIzaSyDE4OcLfA_j0E-bf9iJiaNMxvUmbKmKErw"
+        },
+        {
+          "current_key": "AIzaSyBYhIo5yFD38Om1VXSCayBxupLbDmpokNI"
         }
       ],
       "services": {
