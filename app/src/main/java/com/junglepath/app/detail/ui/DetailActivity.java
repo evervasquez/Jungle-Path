@@ -4,18 +4,12 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,43 +24,39 @@ import com.junglepath.app.libs.Utils;
 import com.junglepath.app.libs.base.ImageLoader;
 import com.junglepath.app.place.ui.PlaceFragment;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.util.List;
-
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DetailActivity extends AppCompatActivity implements DetailView{
     private static final String TAG = DetailActivity.class.getSimpleName();
 
-    @Bind(R.id.collapsingToolbar)
+    @BindView(R.id.collapsingToolbar)
     CollapsingToolbarLayout collapsing;
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.toolbarImage)
+    @BindView(R.id.toolbarImage)
     ImageView image;
-    @Bind(R.id.direction)
+    @BindView(R.id.direction)
     FloatingActionMenu floatingActionMenu;
 
-    @Bind(R.id.text_description)
+    @BindView(R.id.text_description)
     TextView text_description;
 
-    @Bind(R.id.text_direccion)
+    @BindView(R.id.text_direccion)
     TextView text_direccion;
 
-    @Bind(R.id.text_telefono)
+    @BindView(R.id.text_telefono)
     TextView text_telefono;
 
-    @Bind(R.id.share)
+    @BindView(R.id.share)
     com.github.clans.fab.FloatingActionButton floatingShared;
 
-    @Bind(R.id.call)
+    @BindView(R.id.call)
     com.github.clans.fab.FloatingActionButton floatingActionCall;
 
-    @Bind(R.id.find)
+    @BindView(R.id.find)
     com.github.clans.fab.FloatingActionButton floatingActionDirection;
 
     @Inject

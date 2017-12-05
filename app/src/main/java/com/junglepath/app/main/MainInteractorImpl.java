@@ -1,5 +1,7 @@
 package com.junglepath.app.main;
 
+import org.json.JSONObject;
+
 public class MainInteractorImpl implements MainInteractor{
     private MainRepository repository;
 
@@ -8,7 +10,7 @@ public class MainInteractorImpl implements MainInteractor{
     }
 
     @Override
-    public void getListPlaces() {
-        this.repository.getListPlaces();
+    public void getListPlaces(JSONObject obj) {
+        this.repository.getListPlaces(obj);
     }
 }

@@ -31,7 +31,7 @@ import com.junglepath.app.main.MainPresenter;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import com.junglepath.app.R;
@@ -39,6 +39,8 @@ import com.junglepath.app.main.ui.adapters.SearchableAdapter;
 import com.junglepath.app.main.ui.adapters.ViewPagerAdapter;
 import com.junglepath.app.place.ui.PlaceFragment;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,19 +53,19 @@ public class MainActivity extends AppCompatActivity implements MainView,
     public static final int RESULT_CANCELED = 0;
     public static final String PREFERENCES_DISTANCE = "PREFERENCES_DISTANCE";
 
-    @Bind(R.id.activity_main)
+    @BindView(R.id.activity_main)
     RelativeLayout activityMain;
 
-    @Bind(R.id.progressBar)
+    @BindView(R.id.progressBar)
     ProgressBar progressBar;
 
-    @Bind(R.id.viewpager)
+    @BindView(R.id.viewpager)
     ViewPager viewPager;
 
-    @Bind(R.id.search_list)
+    @BindView(R.id.search_list)
     ListView search_list;
 
-    @Bind(R.id.tablayout)
+    @BindView(R.id.tablayout)
     TabLayout tabLayout;
 
     private JunglePath app;
@@ -288,6 +290,24 @@ public class MainActivity extends AppCompatActivity implements MainView,
         intent.putExtra(PlaceFragment.ARG_PLACE, place);
         intent.putExtra("code", SEARCH_TO_DETAIL);
         startActivityForResult(intent, SEARCH_TO_DETAIL);
+    }
+
+    @Override
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getAssets().open("junglepath.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+
     }
 }
 

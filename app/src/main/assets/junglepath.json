@@ -1,0 +1,557 @@
+{
+  "places" : [ {
+    "id" : 0,
+    "nombre" : "Pub's",
+    "places" : [ {
+      "descripcion" : "Bienvenido a Lua Discoteck, una discoteca con un nuevo concepto de ambiente elegante y selecto. Presenta fiestas temáticas, activaciones, show de artistas nacionales e internacionales. Te brindamos el servicio de reservas de zona Vip de las instalaciones para cualquier tipo de evento. Servicio de transporte desde la comodidad de tu hogar y hotel hasta las instalaciones de la discoteca, también contamos con el servicio de chofer particular.  Ven a conocernos y disfruta de una noche diferente con un servicio A1, profesional y cálido con los mejores tragos exóticos, tradicionales, las mejores marcas de cerveza, con muy buena música las mejores mezclas como de dance,electro, techno, house, rock, reguetón, salsa, cumbia, bachata entre otros. Nuestro objetivo, aportarle,la mejor calidad,el mejor servicio y espectáculos para la capital folclórica de la Amazonia peruana LA CIUDAD DE LAMAS.",
+      "direccion" : "Jr. Reynaldo bartra / 16 de octubre - Lamas",
+      "imagenes" : [ {
+        "url" : "https://img.elcomercio.pe/files/ec_article_multimedia_gallery/uploads/2017/03/22/58d29eb24168e.jpeg"
+      } ],
+      "latitude" : "-6.429846",
+      "longitud" : "-76.515527",
+      "nombre" : "LUA DISCOTECK",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "Variedad de tragos a precios comodos",
+      "direccion" : "Jr. Junin Crda 3",
+      "imagenes" : [ {
+        "url" : "https://img.elcomercio.pe/files/ec_article_multimedia_gallery/uploads/2017/03/22/58d29eb24168e.jpeg"
+      } ],
+      "latitude" : -6.421962,
+      "longitud" : -76.517565,
+      "nombre" : "El Chino Alcohol & Tabaco",
+      "telefono" : "(042) 543825"
+    }, {
+      "descripcion" : "Variedad de tragos a precios comodos",
+      "direccion" : "Jr. Junin Crda 3",
+      "imagenes" : [ {
+        "url" : "https://img.elcomercio.pe/files/ec_article_multimedia_gallery/uploads/2017/03/22/58d29eb24168e.jpeg"
+      } ],
+      "latitude" : "-6.421962",
+      "longitud" : "-76.517565",
+      "nombre" : "El Chino Alcohol & Tabaco",
+      "telefono" : "(042) 543825"
+    }, {
+      "descripcion" : "Ven y diviértete con nuestra variedad de canciones que podras cantar acompañados de nuestros exquisitos tragos de la región ven ya!!!!. ",
+      "direccion" : "Jirón Martin de la Riva y Herrera 163",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-o/09/dc/18/ff/huascar-bar.jpg"
+      } ],
+      "latitude" : "-6.419658",
+      "longitud" : "-76.520433",
+      "nombre" : "Dominick restobar",
+      "telefono" : "942 019 012"
+    }, {
+      "descripcion" : "bar de diversion, tragos cortos, cerveza, buena musica Variada ",
+      "direccion" : "Jr San Martin 1169 ",
+      "imagenes" : [ {
+        "url" : "http://www.rumbosdelperu.com/wp-content/uploads/2017/05/DSCN2809-990x743.jpg"
+      }, {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/09/e6/d6/cd/el-duende-maldito-artesania.jpg"
+      }, {
+        "url" : "http://www.rumbosdelperu.com/wp-content/uploads/2017/05/DSCN2801-1024x768.jpg"
+      } ],
+      "latitude" : "-6.420399",
+      "longitud" : "-76.518340",
+      "nombre" : "El duende maldito",
+      "telefono" : ""
+    }, {
+      "descripcion" : "Se te antoja un buen bocadillo ven a La Rustica Resto-Bar con nuestras mejores cartas y buena música  ",
+      "direccion" : " Jr.San Martin 1781, Lamas",
+      "imagenes" : [ {
+        "url" : "http://viaresto.viapais.com.ar/img/425704%20(1).jpg"
+      } ],
+      "latitude" : "-6.417314",
+      "longitud" : "-76.523901",
+      "nombre" : "La Rustica Resto-Bar",
+      "telefono" : "961 080 103"
+    }, {
+      "descripcion" : "Se te antoja un buen bocadillo ven a La Rustica Resto-Bar con nuestras mejores cartas y buena música",
+      "direccion" : "Jr.San Martin 1781, Lamas",
+      "imagenes" : [ {
+        "url" : "http://viaresto.viapais.com.ar/img/425704%20(1).jpg"
+      } ],
+      "latitude" : -6.417314,
+      "longitud" : -76.523901,
+      "nombre" : "La Rustica Resto-Bar",
+      "telefono" : "961 080 103"
+    }, {
+      "descripcion" : "La mejor música de los 80's y diversidad de tragos lo encontraras acá en nuestra local ven y visitanos.",
+      "direccion" : "Esq. y, Jr. Ramón Castilla Cdra 3, Lamas",
+      "imagenes" : [ {
+        "url" : "http://4.bp.blogspot.com/_1pJYBGkQLqA/RqkOJJiIGjI/AAAAAAAAAUI/aCiLFgEWfFU/s400/P1000397chico.JPG"
+      } ],
+      "latitude" : "-6.420448",
+      "longitud" : "-76.516305",
+      "nombre" : "80s Bar Taberna Lamas",
+      "telefono" : "S/N"
+    } ]
+  }, {
+    "id" : 1,
+    "nombre" : "Hoteles",
+    "places" : [ {
+      "descripcion" : "Un lugar ideal para descansar si vienes de visita a la ciudad por un periodo de tiempo largo",
+      "direccion" : "Jr. San Martín s/n",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/07/c8/f2/91/hospedaje-casa-la-sangapilla.jpg"
+      }, {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/0d/1f/3c/40/hospedaje-casa-la-sangapilla.jpg"
+      }, {
+        "url" : "https://s-ec.bstatic.com/images/hotel/max1024x768/892/89243280.jpg"
+      } ],
+      "latitude" : "-6.430358",
+      "longitud" : "-76.510940",
+      "nombre" : "Hospedaje Sangapilla",
+      "telefono" : "(042) 543004"
+    }, {
+      "descripcion" : "Las mejores canciones que elijas las tenemos acá en Calle 2 ven y disfruta de tus canciones favoritas",
+      "direccion" : "Jr. Ancohallo 205 Lamas",
+      "imagenes" : [ {
+        "url" : "https://s-ec.bstatic.com/images/hotel/max1024x768/795/79535497.jpg"
+      } ],
+      "latitude" : "-6.430358",
+      "longitud" : "-76.510940",
+      "nombre" : "Casa Rural la Segoviana",
+      "telefono" : "951 552 788"
+    }, {
+      "descripcion" : "Las mejores canciones que elijas las tenemos acá en Calle 2 ven y disfruta de tus canciones favoritas",
+      "direccion" : "Jr. Ancohallo 205 Lamas",
+      "imagenes" : [ {
+        "url" : "https://s-ec.bstatic.com/images/hotel/max1024x768/795/79535497.jpg"
+      } ],
+      "latitude" : -6.430358,
+      "longitud" : -76.51094,
+      "nombre" : "Casa Rural la Segoviana",
+      "telefono" : "951 552 788"
+    }, {
+      "descripcion" : "Hospedaje Plaza es un lugar acogedor, donde nuestra mayor satisfacción es que el usuario se sienta como en casa y seguro de estar en un lugar de transitorio. El mejor lugar para hospedarse en Lamas y pasar unas vacaciones de maravilla",
+      "direccion" : "Jiron San Martín 789, Lamas",
+      "imagenes" : [ {
+        "url" : "http://www.descubresanmartin.com/directorio/wp-content/uploads/2014/01/1372891576_524651104_1-Hospedaje-Plaza-Lamas-Centro-de-la-Ciudad.jpg"
+      }, {
+        "url" : "https://s-ec.bstatic.com/images/hotel/max1024x768/973/97380295.jpg"
+      } ],
+      "latitude" : "-6.422383",
+      "longitud" : "-76.516106",
+      "nombre" : "PLAZA HOSPEDAJE",
+      "telefono" : "(042) 500051"
+    }, {
+      "descripcion" : "Un lugar acojible para pasarla bien",
+      "direccion" : "Jr. Domingo Canal Guerra crda 1",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/0d/ff/ca/e9/habitacion-matrimonial.jpg"
+      }, {
+        "url" : "https://nearfinderpe.com/public/crop.php?w=175&s=//public/default/images/logos/pe/thumb_100585.png"
+      } ],
+      "latitude" : "-6.421792",
+      "longitud" : "-76.515489",
+      "nombre" : "Tayta Abraham Hospedaje",
+      "telefono" : "(042) 543170"
+    }, {
+      "descripcion" : "Ven y experimenta nuestro alojamiento y no te decepcionaras",
+      "direccion" : "Jr. San Martin 1027, Lamas",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/0c/64/af/da/el-abuelo-felipe-alojamiento.jpg"
+      }, {
+        "url" : "http://aff.bstatic.com/images/hotel/max500/793/79301580.jpg"
+      }, {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-o/0c/64/af/d2/el-abuelo-felipe-alojamiento.jpg"
+      } ],
+      "latitude" : "-6.490294",
+      "longitud" : "-76.361718",
+      "nombre" : "El Abuelo Felipe Hospedaje",
+      "telefono" : "986 659 045"
+    }, {
+      "descripcion" : "Nuesrto alojamiento cuenta con gran personal que te atenderá con agrado",
+      "direccion" : "Jiron San Martín 1261, Lamas",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/07/17/78/f0/lamas-suites.jpg"
+      }, {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/07/b8/17/a1/una-ex-miss-en-lamas.jpg"
+      }, {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/07/17/78/f0/lamas-suites.jpg"
+      } ],
+      "latitude" : "-6.489225",
+      "longitud" : "-76.361434",
+      "nombre" : "Hotel LAMAS",
+      "telefono" : "s/n"
+    }, {
+      "descripcion" : "Ven y disfruta de nuestro alojamiento a media cuadra de la plaza y te divertirás",
+      "direccion" : "Jr. Victor Raúl Haya de la Torre Cdra 3.",
+      "imagenes" : [ {
+        "url" : "https://t-ec.bstatic.com/images/hotel/max1024x768/117/117704587.jpg"
+      } ],
+      "latitude" : "-6.417111",
+      "longitud" : "-76.516358",
+      "nombre" : "Hospedaje KETÍN",
+      "telefono" : "(042) 543866"
+    }, {
+      "descripcion" : "En nuestro hotel podrás tener la mejor comodidad, calidad asegurada.",
+      "direccion" : "Proyeccion Jr. 16 de octubre",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/03/ac/10/4c/gente-muy-amable.jpg"
+      } ],
+      "latitude" : "-6.428867",
+      "longitud" : "-76.511292",
+      "nombre" : "Hospedaje Oro verde",
+      "telefono" : ""
+    }, {
+      "descripcion" : "Brindamos servicio de hospedaje con habitaciones cómodas y elegantes, con baño propio, tv cable, amplio estacionamiento,Wi-Fi y servicio de movilidad.",
+      "direccion" : "Jr. Los jardines",
+      "imagenes" : [ {
+        "url" : "https://t-ec.bstatic.com/images/hotel/270x200/773/77363894.jpg"
+      } ],
+      "latitude" : "-6.418298",
+      "longitud" : "-76.523307",
+      "nombre" : "Hotel los jardines",
+      "telefono" : "951 638 535"
+    }, {
+      "descripcion" : "Brindamos servicio de hospedaje con habitaciones cómodas y elegantes, con baño propio, tv cable, amplio estacionamiento,Wi-Fi y servicio de movilidad.",
+      "direccion" : "Jr. Los jardines",
+      "imagenes" : [ {
+        "url" : "https://t-ec.bstatic.com/images/hotel/270x200/773/77363894.jpg"
+      } ],
+      "latitude" : "-6.418298",
+      "longitud" : "-76.523307",
+      "nombre" : "Hotel los jardines",
+      "telefono" : "951 638 535"
+    }, {
+      "descripcion" : "En nuestro hospedaje tenemos la mejor variedad de precios y ofertas",
+      "direccion" : "Jr. Los chankas Cdra. 2",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/01/d0/09/f5/das-hospedaje.jpg"
+      } ],
+      "latitude" : "-6.418396",
+      "longitud" : "-76.523681",
+      "nombre" : "Hospedaje los girasoles",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "En nuestro hospedaje tenemos la mejor variedad de precios y ofertas",
+      "direccion" : "Jr. Los chankas Cdra. 2",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/01/d0/09/f5/das-hospedaje.jpg"
+      } ],
+      "latitude" : -6.418396,
+      "longitud" : -76.523681,
+      "nombre" : "Hospedaje los girasoles",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "\"El alojamiento \"Joralgi\" esta situado en la majestuosa ciudad de lamas, brindando servicios con COMODIDAD, CONFIANZA, SEGURIDAD E HIGIENE.\\\"\"",
+      "direccion" : "Jr. San Martín N°1068 Lamas",
+      "imagenes" : [ {
+        "url" : "https://aff.bstatic.com/images/hotel/max500/111/111371723.jpg"
+      } ],
+      "latitude" : "-6.420761",
+      "longitud" : "-76.517371",
+      "nombre" : "Hospedaje Joralgi",
+      "telefono" : " (042) 502147"
+    } ]
+  }, {
+    "id" : 2,
+    "nombre" : "Lugares Turísticos",
+    "places" : [ {
+      "descripcion" : "El museo Chanka de Lamas te llevara a conocer mas sobre la cultura de Lamas, su historia, costumbres y mas.",
+      "direccion" : "Jiron San Martín 1165, Lamas",
+      "imagenes" : [ {
+        "url" : "https://upload.wikimedia.org/wikipedia/commons/7/71/Museo_Chanka_y_de_la_Diversidad_Lamista.jpg"
+      }, {
+        "url" : "http://www.rumbosdelperu.com/wp-content/uploads/2017/04/IMG-20170417-WA0014.jpg"
+      }, {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/0e/2b/11/90/img-20161209-174600-largejpg.jpg"
+      } ],
+      "latitude" : "-6.420422",
+      "longitud" : "-76.518252",
+      "nombre" : "Museo Chanka y de la Diversidad Lamista",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : " A solo 20 minutos de Tarapoto, se encuentra una edificación salida de un cuento de hadas, se trata del Castillo de Lamas. Esta construcción hecha a base de piedra labrada a mano, fue iniciada en el 2005 por el italiano Nicola Felice y se ha convertido en la sensación entre los turistas nacionales e internacionales. ",
+      "direccion" : "Jirón Martin de la Riva y Herrera, Lamas",
+      "imagenes" : [ {
+        "url" : "http://tarapoto.tours/wp-content/uploads/2016/07/tour-lamas-3-1024x684.jpg"
+      }, {
+        "url" : "http://tarapoto.tours/wp-content/uploads/2016/07/064.jpg"
+      }, {
+        "url" : "http://tarapoto.tours/wp-content/uploads/2016/07/tour-lamas-4-768x513.jpg"
+      } ],
+      "latitude" : "-6.419569",
+      "longitud" : "-76.520258",
+      "nombre" : "Castillo de Nicola Felice Lamas",
+      "telefono" : "948 976 610"
+    }, {
+      "descripcion" : "La iglesia de Lamas que cuenta con muchos años también tiene algo de historia desde la conquista de los españoles.",
+      "direccion" : "Jr. San Martín cdra 8",
+      "imagenes" : [ {
+        "url" : "http://www.sillamas.org.pe/Paginas/Imagenes/Lamas-4.jpg"
+      }, {
+        "url" : "http://peru.turixtear.com/img/fotos/pe/bm9kZS0xMzYtMTM40_medium.jpg"
+      }, {
+        "url" : "http://static.panoramio.com/photos/original/84854699.jpg"
+      } ],
+      "latitude" : "-6.421935",
+      "longitud" : "-76.516428",
+      "nombre" : "Iglesia Santa Cruz de los Motilones",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "Ubicada en la provincia de Lamas hacia el norte por un camino afirmado de 5.5 km. hasta llegar a la maloca que indica el inicio del sendero de aprox. 565 m. que conduce a la cascada luego de 15 minutos de caminata. Caída de agua cristalina y fría de la quebrada de Juanjuicillo, se vierte sobre una base rocosa que divide el agua en dos torrentes de 16 m. de altura que caen formando una poza de 2,5 m. de profundidad, las aguas continúan su descenso discurriendo en media vegetación. La poza presenta un diámetro de 6 m.",
+      "direccion" : "Carretera Lamas",
+      "imagenes" : [ {
+        "url" : "http://www.sillamas.org.pe/Paginas/Imagenes/Lamas-4.jpg"
+      } ],
+      "latitude" : "-6.436875",
+      "longitud" : "-76.524330",
+      "nombre" : "Piscina Natural",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "Ven y divierte en nuestra pisicnas con platos exquisitos que te antojaran juegos y mas.",
+      "direccion" : "Carretera aviación",
+      "imagenes" : [ {
+        "url" : "http://mymtravelagency.com.pe/wp-content/uploads/2015/01/Catarata-de-Chapawanki-SAN-MARTIN.jpg"
+      }, {
+        "url" : "http://1.bp.blogspot.com/-zpXAv-j-GnA/UQlWATR7YFI/AAAAAAAAAPc/hpVgceY-czU/s1600/100_4604.JPG"
+      }, {
+        "url" : "http://2.bp.blogspot.com/-08ioPZr3Qew/UQlVNPlq8SI/AAAAAAAAAN8/QoFxd1b65Co/s640/100_4592.JPG"
+      } ],
+      "latitude" : "-6.388130",
+      "longitud" : "-76.515993",
+      "nombre" : "Chapawanki",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "El mirador de Lamas donde pondrás tener una linda vista para tomarse fotos y tener un bello recuerdo",
+      "direccion" : "Los Chancas crda 3",
+      "imagenes" : [ {
+        "url" : "http://1.bp.blogspot.com/-kJk9EVx2s5U/UIq_HxsadzI/AAAAAAAAA1c/3svpHBqLMOY/s1600/mirador+lamas+02.jpg"
+      }, {
+        "url" : "https://i.ytimg.com/vi/aPIIwhkuNqc/maxresdefault.jpg"
+      }, {
+        "url" : "http://2.bp.blogspot.com/-dL7UcGtdbVU/TlQVyXrmVoI/AAAAAAAAAEo/Xy19KNjFzwQ/s1600/DSC08713.JPG"
+      } ],
+      "latitude" : "-6.418520",
+      "longitud" : "-76.524182",
+      "nombre" : "Mirador",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "La plaza de Lamas un lugar perfecto para pasar una tarde acompañado de familia o amigos.",
+      "direccion" : "Jr San Martin cdra 8",
+      "imagenes" : [ {
+        "url" : "http://tarapoto.tours/wp-content/uploads/2016/07/tour-lamas-2-768x512.jpg"
+      }, {
+        "url" : "http://www.lagunaazul.com.pe/images/slides/lamas/slide03.jpg"
+      }, {
+        "url" : "http://www.phimavoyages.com/wp-content/uploads/2015/08/Lamas-San-Martin-Voyage-au-Nord-du-P%C3%A9rou.jpg"
+      } ],
+      "latitude" : "-6.421873",
+      "longitud" : "-76.516152",
+      "nombre" : "Plaza de Armas de Lamas",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "La plaza del barrio wayco en Lamas es un lugar en donde la mayoría de personas pasan la tarde también en ciertas ocasiones se puede encontrar a gente vendiendo productos de artesanía.",
+      "direccion" : "Inca Pachacutec",
+      "imagenes" : [ {
+        "url" : "http://1.bp.blogspot.com/-o211n8_wqBg/TcPnpIXrsyI/AAAAAAAAADw/4wSBVHD_qZM/s1600/SM-Peru-Lamas4-029.jpg"
+      }, {
+        "url" : "http://tarapoto.tours/wp-content/uploads/2016/07/tour-lamas-1-768x512.jpg"
+      }, {
+        "url" : "http://tarapoto.tours/wp-content/uploads/2016/07/lamas-6.jpg"
+      } ],
+      "latitude" : "-6.423844",
+      "longitud" : "-76.522629",
+      "nombre" : "Plaza De Armas Comunidad Nativa Wayku",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "Quieres pasar una tarde divertida con tú familia e amigos ven a bañarte en nuestras piscinas y degusta nuestra variedad de platillos",
+      "direccion" : "Carretera Lamas",
+      "imagenes" : [ {
+        "url" : "https://i0.wp.com/tarapotolife.com/wp-content/uploads/2009/10/krotos-resort-tarapoto1.jpg"
+      }, {
+        "url" : "http://tarapotolife.com/wp-content/uploads/2009/10/krotos-resort-tarapoto-san-martin.jpg"
+      } ],
+      "latitude" : "-6.444783",
+      "longitud" : "-76.489542",
+      "nombre" : "Recreo Turistico Los Krotos",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "Ven y disfruta de nuestras piscinas relajantes cualquier día del año.",
+      "direccion" : "Jr. Montero Rojas S/N",
+      "imagenes" : [ {
+        "url" : "http://static.panoramio.com/photos/original/37512124.jpg"
+      } ],
+      "latitude" : "-6.419923",
+      "longitud" : "-76.510769",
+      "nombre" : "Royal Pool",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "La catarata de Toroyacu es un conjunto de tres cataratas de casi 100 metros de altura. Cada vez que llueve y sube el caudal del agua, se oye el sonido de las caídas de agua como si fuera el bramido de un toro. De ahí su nombre. ",
+      "direccion" : "San Roque de Cumbaza",
+      "imagenes" : [ {
+        "url" : "https://2.bp.blogspot.com/-N0dCGPVVebc/WHUxt0N19BI/AAAAAAAADts/qWnRP2QPxxIxiSvX4BrN0IqN9o1OL8EzACLcB/s1600/WhatsApp%2BImage%2B2017-01-08%2Bat%2B7.09.31%2BPM8.jpg"
+      }, {
+        "url" : "http://static.panoramio.com/photos/large/12779248.jpg"
+      }, {
+        "url" : "http://static.wixstatic.com/media/2c6ed4_5e79f976c2ededb1fdca1bac69d8a1bc.jpg_1024"
+      } ],
+      "latitude" : "-6.327058",
+      "longitud" : "-76.408496",
+      "nombre" : "Sunipi Kausani",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "Es una caída de agua aproximadamente  5 metros de altura, la misma que  forma una  poza natural de 15 metros de largo por 5 metros de ancho y de una profundidad respetable, cuyos flancos están protegidos por peñascos de color marrón  y plomo oscuro, que le dan una peculiar característica",
+      "direccion" : "Huapo",
+      "imagenes" : [ {
+        "url" : "https://img.elcomercio.pe/files/article_content_ec_fotos/uploads/2017/08/22/599c62fee3065.jpeg"
+      }, {
+        "url" : "http://4.bp.blogspot.com/-VUfSnXfl5Nk/USK4VsCTTnI/AAAAAAAAAV8/epKN1HK2MUI/s1600/IMG_0048.JPG"
+      }, {
+        "url" : "https://scontent-lga3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c180.0.720.720/23421865_1760381073994898_1057575249270276096_n.jpg"
+      } ],
+      "latitude" : "-6.376780",
+      "longitud" : "-76.535649",
+      "telefono" : "S/N",
+      "nombre" : "Urmana"
+    }, {
+      "descripcion" : "La comunidad nativa de Rumicallpa está ubicada a tan solo 30 minutos de la ciudad de Lamas, ubicada en dirección de la carretera al distrito de Shanao (salida de Lamas - Shanao).",
+      "direccion" : "Shanao",
+      "imagenes" : [ {
+        "url" : " https://3.bp.blogspot.com/-uWy3Bt8yMdk/WGCdcwUs7rI/AAAAAAAADrs/MrFtAfMe-x8FDqvOvnaWmRtq2p-c1l5BgCLcB/s1600/100_5246.JPG"
+      }, {
+        "url" : "https://4.bp.blogspot.com/-5E7NrKK3BNA/WGCYApqP1PI/AAAAAAAADrY/GBqscvOf7YsMZ1sMLAheeMlzjk3OLgkMQCEw/s1600/1.jpg"
+      }, {
+        "url" : "  https://3.bp.blogspot.com/-Kr8fUPmchKs/WGB_Y0z6yzI/AAAAAAAADps/rmFa0jbq8KE7Xm6hMueuBrDwLfFwevXnACLcB/s1600/IMG_20161225_152215.jpg"
+      } ],
+      "latitude" : "-6.374241",
+      "telefono" : "S/N",
+      "longitud" : "-76.563088",
+      "nombre" : "Rumicallapa"
+    } ]
+  }, {
+    "id" : 3,
+    "nombre" : "Restaurantes",
+    "places" : [ {
+      "descripcion" : "Restaurante turístico con buena variedad de platos a elegir ",
+      "direccion" : "Jr. Los Chankas Cdra 3",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/0f/8b/92/56/ingresando-al-restaurant.jpg"
+      } ],
+      "latitude" : "-6.418934",
+      "longitud" : "-76.523391",
+      "nombre" : "vestigios - El mirador",
+      "telefono" : "(042) 543179"
+    }, {
+      "descripcion" : "Lugar donde podrás encontrar las mejores pizza's de la región y de la ciudad de Lamas, con sabores únicos. ",
+      "direccion" : "Jr. Los Chankas",
+      "imagenes" : [ {
+        "url" : "https://scontent.cdninstagram.com/t51.2885-15/e35/p320x320/14309825_1303825306303786_1171278466_n.jpg"
+      }, {
+        "url" : "https://www.atrapalo.pe/common/photo/res/48882/0/ticr_890_370.jpg"
+      } ],
+      "latitude" : "-6.418396",
+      "longitud" : "-76.523681",
+      "nombre" : "Pizzeria TITI",
+      "telefono" : "(042) 543439"
+    }, {
+      "descripcion" : "Empresa dedicada a la venta de hamburguesas, se hace delivery totalmente gratis en la ciudad de Lamas, todo preparado con los mejores ingrediente Alè Burge",
+      "direccion" : "Jr. Chiclayo Cdra. 3 ",
+      "imagenes" : [ {
+        "url" : "https://igx.4sqi.net/img/general/600x600/33137114_c03O6K6m47qhxOXv_i0FO0DHalXESPhiHCtYMbBRiAg.jpg"
+      } ],
+      "latitude" : "-6.418312",
+      "longitud" : "-76.519724",
+      "nombre" : "Alé Burguers",
+      "telefono" : "952007542"
+    }, {
+      "descripcion" : "Lo mejor en pollos broaster de la región la ciudad de Lamas y la región San Martin. Ofrecemos pollos broaster y delivery a cualquier punto de la ciudad de Lamas.",
+      "direccion" : "JR. SAN MARTÍN 1265",
+      "imagenes" : [ {
+        "url" : "https://lh5.googleusercontent.com/-gZbQgTFJbTc/U2Bxrgp2B5I/AAAAAAAAAIc/HzKddT6Zs4c/w2448-h3264/polleria%2Bel%2Bcarioco%2Ben%2Bfacebook---el-cariocofyg.jpg"
+      } ],
+      "latitude" : "-6.419894",
+      "longitud" : "-76.519003",
+      "nombre" : " Polleria El carioco",
+      "telefono" : " (042) 543369"
+    }, {
+      "descripcion" : "Lugar de buena comida para aquellos que deseen probar cosas nuevas, ofrece: Refrigerios en general, pizzas, pollo broaster, batidos, chupetes y helados regionales.",
+      "direccion" : "Jr. San Martín 1261",
+      "imagenes" : [ {
+        "url" : "https://igx.4sqi.net/img/general/600x600/134621723_00fRRkTK11n6_L87HZrljB2EQypSzLvZbIhZVNqHzyA.jpg"
+      }, {
+        "url" : "https://igx.4sqi.net/img/general/600x600/10782524_yWaGjzPPyCZYr-bldDD-wqFPQucpCNANm1iBDq8-Bm8.jpg"
+      }, {
+        "url" : "http://www.go2peru.travel/destinos/large/tarapoto_ago11-742.jpg"
+      } ],
+      "latitude" : "-6.42024",
+      "longitud" : "-76.518263",
+      "nombre" : "Vista alegre",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "Lugar de variados platos para el deleite, no deje pasar esta oportunidad",
+      "direccion" : "Jr. San Martin Cdra. 10",
+      "imagenes" : [ {
+        "url" : "http://vivesumaj.com/wp-content/uploads/2017/05/DSCN2775.jpg"
+      }, {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/08/46/0a/c7/el-abuelo-felipe.jpg"
+      }, {
+        "url" : "https://t-ec.bstatic.com/images/hotel/max400/765/76540338.jpg"
+      } ],
+      "latitude" : "-6.421120",
+      "longitud" : "-76.517297",
+      "nombre" : "El abuelo Felipe Restaurant",
+      "telefono" : "(042) 543451"
+    }, {
+      "descripcion" : "Lo mejor en comidas regionales y nacionales, platos a la carta y menú variado",
+      "direccion" : "Jr.San Martin Crda. 9",
+      "imagenes" : [ {
+        "url" : "https://img.elcomercio.pe/files/ec_article_multimedia_gallery/uploads/2017/03/21/58d202005aae7.jpeg"
+      } ],
+      "latitude" : "-6.421342",
+      "longitud" : "-76.516856",
+      "nombre" : "Pericos",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "El restaurant les ofrece lo mejor en comidas nacionales y regionales con menú y platos a la carta.",
+      "direccion" : "Jr. San Martin Cdra. 9",
+      "imagenes" : [ {
+        "url" : "https://c1.staticflickr.com/4/3115/3103205807_3261b3bfc3_b.jpg"
+      } ],
+      "latitude" : "-6.421413",
+      "longitud" : "-76.516946",
+      "nombre" : "Restaurant MICKY",
+      "telefono" : "S/N"
+    }, {
+      "descripcion" : "Rolly's Restaurant le acompaña por el mundo de la gastronomía con platos informales de todo el mundo. Este restaurante estilo bufé ofrece platos regionales, nacionales e internacionales para cualquier tipo de evento.",
+      "direccion" : "Jr. San Martin Cdra. 9",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/06/84/60/58/rolly-s-restaurant-motel.jpg"
+      } ],
+      "latitude" : "-6.421680",
+      "longitud" : "-76.516728",
+      "nombre" : "ROLLY'S Restaurant",
+      "telefono" : "(042) 543706"
+    }, {
+      "descripcion" : "Ofrecemos el mejor café y chocolate orgánico de San Martin en todas sus presentaciones calientes y frías. Helados,postres,sandwichs,jugos y más",
+      "direccion" : "Jr. San Martin 1261",
+      "imagenes" : [ {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/0f/55/42/ed/rupa-rupa-cafe-chocolate.jpg"
+      }, {
+        "url" : "https://media-cdn.tripadvisor.com/media/photo-s/0f/55/2d/01/rupa-rupa-cafe.jpg"
+      } ],
+      "latitude" : "-6.421832",
+      "longitud" : "-76.515835",
+      "nombre" : "Rupa Rupa café & chocolate",
+      "telefono" : "(042) 500001"
+    }, {
+      "descripcion" : "Ofrecemos las distintas bebidas heladas y calientes a base de café y chocolates finos como:  Cappuccino, Latte, Moka, expresso, americano, cortado, jugos de frutas de la zona, bocaditos de la región, pie, flan de café, etc",
+      "direccion" : "Jr. San Martin 523",
+      "imagenes" : [ {
+        "url" : "http://www.oroverde.com.pe/wp-content/uploads/2015/06/cafeteria2.jpg"
+      }, {
+        "url" : "http://www.oroverde.com.pe/wp-content/uploads/2015/06/cafeteria.jpg"
+      }, {
+        "url" : "http://www.oroverde.com.pe/wp-content/uploads/2015/06/cafeteria1.jpg"
+      } ],
+      "latitude" : "-6.487662",
+      "longitud" : "-76.360637",
+      "nombre" : "Cafetería Oro verde",
+      "telefono" : "(042) 543389"
+    } ]
+  } ]
+}

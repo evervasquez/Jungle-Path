@@ -1,5 +1,7 @@
 package com.junglepath.app.main;
 
+import org.json.JSONObject;
+
 public interface MainRepository {
-    void getListPlaces();
+    void getListPlaces(JSONObject obj);
 }

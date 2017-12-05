@@ -10,7 +10,8 @@ import com.junglepath.app.db.entities.Place;
 import com.junglepath.app.libs.base.ImageLoader;
 import com.junglepath.app.place.OnItemClickListener;
 import java.util.List;
-import butterknife.Bind;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.junglepath.app.R;
 
@@ -69,13 +70,13 @@ public class PlaceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     //region ViewHolders
     public static class PlaceHolder extends RecyclerView.ViewHolder {
         private View view;
-        @Bind(R.id.textDescription)
+        @BindView(R.id.textDescription)
         TextView textDescription;
-        @Bind(R.id.text_hora)
+        @BindView(R.id.text_hora)
         TextView textHora;
-        @Bind(R.id.imgProduct)
+        @BindView(R.id.imgProduct)
         ImageView imgProduct;
-        @Bind(R.id.text_address)
+        @BindView(R.id.text_address)
         TextView textAddress;
 
         PlaceHolder(View itemView) {

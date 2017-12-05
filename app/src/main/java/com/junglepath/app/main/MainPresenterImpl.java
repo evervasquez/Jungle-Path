@@ -1,10 +1,14 @@
 package com.junglepath.app.main;
+import android.util.Log;
+
 import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.libs.base.EventBus;
 import com.junglepath.app.main.events.MainEvent;
 import com.junglepath.app.main.ui.MainView;
 
 import org.greenrobot.eventbus.Subscribe;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +32,14 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void onResume() {
-        interactor.getListPlaces();
+        String json = view.loadJSONFromAsset();
+        try {
+            JSONObject obj = new JSONObject(json);
+            interactor.getListPlaces(obj);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

@@ -22,4 +22,5 @@ public interface MainView {
 
     void showElements();
 
+    String loadJSONFromAsset();
 }

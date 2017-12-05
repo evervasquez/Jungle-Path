@@ -29,11 +29,10 @@ import com.junglepath.app.Login.LoginPresenter;
 import com.junglepath.app.R;
 import com.junglepath.app.main.ui.MainActivity;
 
-import java.util.Arrays;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
@@ -41,13 +40,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     private static final String TAG = LoginActivity.class.getSimpleName();
 
 
-    @Bind(R.id.button_facebook_signout)
+    @BindView(R.id.button_facebook_signout)
     Button buttonFacebookSignout;
-    @Bind(R.id.button_facebook_login)
+    @BindView(R.id.button_facebook_login)
     LoginButton buttonFacebookLogin;
-    @Bind(R.id.activity_login)
+    @BindView(R.id.activity_login)
     RelativeLayout activityLogin;
-    @Bind(R.id.progressBar2)
+    @BindView(R.id.progressBar2)
     ProgressBar progressbar;
 
     private CallbackManager mCallbackManager;
@@ -64,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         ButterKnife.bind(this);
+        buttonFacebookLogin.setReadPermissions("email", "public_profile");
         app = (JunglePath) getApplication();
         initInjection();
         presenter.onCreate();
@@ -102,7 +102,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     public void initComponents() {
         mAuth = FirebaseAuth.getInstance();
         mCallbackManager = CallbackManager.Factory.create();
-        buttonFacebookLogin.setReadPermissions("email", "public_profile");
         buttonFacebookLogin.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {

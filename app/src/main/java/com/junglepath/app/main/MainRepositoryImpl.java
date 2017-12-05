@@ -1,5 +1,6 @@
 package com.junglepath.app.main;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -7,14 +8,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 import com.junglepath.app.db.entities.Category;
 import com.junglepath.app.db.entities.Place;
 import com.junglepath.app.domain.FirebaseDatabaseHelper;
 import com.junglepath.app.libs.base.EventBus;
 import com.junglepath.app.main.events.MainEvent;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainRepositoryImpl implements MainRepository {
     private static final String TAG = MainRepositoryImpl.class.getSimpleName();
@@ -28,32 +36,52 @@ public class MainRepositoryImpl implements MainRepository {
     }
 
     @Override
-    public void getListPlaces() {
-        saveListPharmacies();
+    public void getListPlaces(JSONObject obj) {
+        saveListPharmacies(obj);
     }
 
-    private void saveListPharmacies() {
+
+    private void saveListPharmacies(JSONObject obj) {
         categories = new ArrayList<>();
+        try {
+            JSONArray places = obj.getJSONArray("places");
+            categories = parseCategory(places);
+            postEvent(MainEvent.LIST_SUCCESS, categories, null);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
-        final FirebaseDatabase database = helper.getDataReference();
-        DatabaseReference myRef = database.getReference("places");
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot placeSnapshot : dataSnapshot.getChildren()) {
-                    categories.add(placeSnapshot.getValue(Category.class));
+    private ArrayList<Category> parseCategory(JSONArray categories){
+        ArrayList<Category> result = new ArrayList<>();
+        for(int i=0; i<categories.length(); i++){
+            ArrayList<Place> listPlaces = new ArrayList<>();
+            Category category = new Category();
+            try {
+                Log.i(TAG, "parseCategory: " + categories.getJSONObject(i).getString("nombre"));
+                category.setNombre(categories.getJSONObject(i).getString("nombre"));
+                category.setId(categories.getJSONObject(i).getInt("id"));
+                JSONArray places = categories.getJSONObject(i).getJSONArray("places");
+                for(int j=0; j<places.length(); j++){
+                    Place place = new Place();
+                    Log.i(TAG, "parseCategory: "+ places.getJSONObject(j).getString("nombre"));
+                    place.setDescripcion(places.getJSONObject(j).getString("descripcion"));
+                    place.setDireccion(places.getJSONObject(j).getString("direccion"));
+                    place.setLatitude(places.getJSONObject(j).getString("latitude"));
+                    place.setLongitud(places.getJSONObject(j).getString("longitud"));
+                    place.setNombre(places.getJSONObject(j).getString("nombre"));
+                    place.setTelefono(places.getJSONObject(j).getString("telefono"));
+                    place.setImagen(places.getJSONObject(j).getJSONArray("imagenes").getJSONObject(0).getString("url"));
+                    listPlaces.add(place);
                 }
-                postEvent(MainEvent.LIST_SUCCESS, categories, null);
+                category.setPlaces(listPlaces);
+                result.add(category);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.i(TAG, "onCancelled: " + databaseError.getMessage());
-                postEvent(MainEvent.LIST_ERROR, databaseError.getMessage());
-            }
-        });
-
+        }
+        return result;
     }
 
     private void postEvent(int type, ArrayList<Category> category, String errorMessage) {
