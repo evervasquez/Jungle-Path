@@ -288,6 +288,7 @@ public class MainActivity extends AppCompatActivity implements MainView,
     private void navigationToDetail(Place place) {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putStringArrayListExtra("images", place.getImagenes());
+        intent.putExtra("nombre", place.getNombre());
         intent.putExtra(PlaceFragment.ARG_PLACE, place);
         intent.putExtra("code", SEARCH_TO_DETAIL);
         startActivityForResult(intent, SEARCH_TO_DETAIL);

@@ -97,6 +97,7 @@ public class PlaceFragment extends Fragment implements PlaceView, OnItemClickLis
     private void navigationToDetail(Place place){
         Intent intent = new Intent(getActivity(), DetailActivity.class);
         intent.putExtra(ARG_PLACE, place);
+        intent.putExtra("nombre", place.getNombre());
         intent.putStringArrayListExtra("images", place.getImagenes());
         intent.putExtra("code", FRAGMENT_TO_DETAIL);
         startActivityForResult(intent, FRAGMENT_TO_DETAIL);

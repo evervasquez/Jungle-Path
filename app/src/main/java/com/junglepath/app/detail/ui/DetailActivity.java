@@ -169,7 +169,6 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
 //        collapsing.setTitle(getString(R.string.title_activity_new_product));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle(current.getNombre());
     }
 
     @Override
@@ -182,9 +181,12 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
     }
 
     public void initComponents() {
-        current = getIntent().getParcelableExtra(PlaceFragment.ARG_PLACE);
-        images = getIntent().getStringArrayListExtra("images");
-        code = getIntent().getIntExtra("code", -1);
+
+        Intent intent = getIntent();
+
+        current = intent.getParcelableExtra(PlaceFragment.ARG_PLACE);
+        images = intent.getStringArrayListExtra("images");
+        code = intent.getIntExtra("code", -1);
 //        imageLoader.load(image, current.getImagen());
 
         if (utils.verifyVersionMoreLollipop()) {
@@ -194,7 +196,9 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
         text_description.setText(current.getDescripcion());
         text_direccion.setText(current.getDireccion());
         text_telefono.setText(current.getTelefono());
+        setTitle(intent.getStringExtra("nombre"));
         initSlider();
+
     }
 
     private void initInjection() {
