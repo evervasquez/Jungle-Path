@@ -3,10 +3,15 @@ package com.junglepath.app.db.entities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Place implements Parcelable {
     private String descripcion;
     private String direccion;
-    private String imagen;
+
+    private ArrayList<String> imagenes;
+
     private String latitude;
     private String longitud;
     private String nombre;
@@ -28,12 +33,12 @@ public class Place implements Parcelable {
         this.direccion = direccion;
     }
 
-    public String getImagen() {
-        return imagen;
+    public ArrayList<String> getImagenes() {
+        return imagenes;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setImagenes(ArrayList<String> imagenes) {
+        this.imagenes = imagenes;
     }
 
     public String getLatitude() {
@@ -78,7 +83,7 @@ public class Place implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.descripcion);
         dest.writeString(this.direccion);
-        dest.writeString(this.imagen);
+        dest.writeStringList(this.imagenes);
         dest.writeString(this.latitude);
         dest.writeString(this.longitud);
         dest.writeString(this.nombre);
@@ -91,7 +96,6 @@ public class Place implements Parcelable {
     protected Place(Parcel in) {
         this.descripcion = in.readString();
         this.direccion = in.readString();
-        this.imagen = in.readString();
         this.latitude = in.readString();
         this.longitud = in.readString();
         this.nombre = in.readString();

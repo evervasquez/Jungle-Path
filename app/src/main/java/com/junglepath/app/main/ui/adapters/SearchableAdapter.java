@@ -62,7 +62,7 @@ public class SearchableAdapter extends BaseAdapter implements Filterable {
         }
 
         holder.text.setText(filteredData.get(position).getNombre());
-        imageLoader.load(holder.imageView, filteredData.get(position).getImagen());
+        imageLoader.load(holder.imageView, filteredData.get(position).getImagenes().get(0));
         holder.setOnClickListener(filteredData.get(position), listener);
         return convertView;
     }

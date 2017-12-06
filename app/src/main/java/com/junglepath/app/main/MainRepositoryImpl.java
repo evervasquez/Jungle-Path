@@ -65,14 +65,18 @@ public class MainRepositoryImpl implements MainRepository {
                 JSONArray places = categories.getJSONObject(i).getJSONArray("places");
                 for(int j=0; j<places.length(); j++){
                     Place place = new Place();
-                    Log.i(TAG, "parseCategory: "+ places.getJSONObject(j).getString("nombre"));
+                    ArrayList<String> imagenes = new ArrayList<String>();
                     place.setDescripcion(places.getJSONObject(j).getString("descripcion"));
                     place.setDireccion(places.getJSONObject(j).getString("direccion"));
                     place.setLatitude(places.getJSONObject(j).getString("latitude"));
                     place.setLongitud(places.getJSONObject(j).getString("longitud"));
                     place.setNombre(places.getJSONObject(j).getString("nombre"));
                     place.setTelefono(places.getJSONObject(j).getString("telefono"));
-                    place.setImagen(places.getJSONObject(j).getJSONArray("imagenes").getJSONObject(0).getString("url"));
+                    JSONArray images = places.getJSONObject(j).getJSONArray("imagenes");
+                    for(int im=0; im<images.length(); im++){
+                          imagenes.add(images.getJSONObject(im).getString("url"));
+                    }
+                    place.setImagenes(imagenes);
                     listPlaces.add(place);
                 }
                 category.setPlaces(listPlaces);

@@ -39,7 +39,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         productHolder.textAddress.setText(placeList.get(position).getDireccion());
         productHolder.textHora.setText(placeList.get(position).getTelefono());
         productHolder.setOnClickListener(placeList.get(position), listener);
-        imageLoader.load(productHolder.imgProduct, placeList.get(position).getImagen());
+        imageLoader.load(productHolder.imgProduct, placeList.get(position).getImagenes().get(0));
     }
 
     @Override

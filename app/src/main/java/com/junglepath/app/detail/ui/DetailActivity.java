@@ -11,11 +11,16 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.github.clans.fab.FloatingActionMenu;
 import com.junglepath.app.JunglePath;
 import com.junglepath.app.R;
@@ -23,6 +28,9 @@ import com.junglepath.app.db.entities.Place;
 import com.junglepath.app.libs.Utils;
 import com.junglepath.app.libs.base.ImageLoader;
 import com.junglepath.app.place.ui.PlaceFragment;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.inject.Inject;
 
@@ -32,12 +40,12 @@ import butterknife.ButterKnife;
 public class DetailActivity extends AppCompatActivity implements DetailView{
     private static final String TAG = DetailActivity.class.getSimpleName();
 
-    @BindView(R.id.collapsingToolbar)
-    CollapsingToolbarLayout collapsing;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.toolbarImage)
-    ImageView image;
+
+    @BindView(R.id.slider)
+    SliderLayout mDemoSlider;
+
     @BindView(R.id.direction)
     FloatingActionMenu floatingActionMenu;
 
@@ -70,6 +78,9 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
     private static final int REQUEST_CALL_PHONE = 1;
 
     Place current;
+
+    ArrayList<String> images = new ArrayList<String>();
+
     int code;
     private static String[] PERMISSIONS_APP = {
             Manifest.permission.CALL_PHONE,
@@ -113,7 +124,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         String shareBodyText = String.format("%s - %s -> %s" , current.getNombre(),
-                current.getDescripcion(), current.getImagen());
+                current.getDescripcion(), current.getDescripcion());
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"Subject here");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
         startActivity(Intent.createChooser(sharingIntent, "Shearing Option"));
@@ -158,6 +169,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
 //        collapsing.setTitle(getString(R.string.title_activity_new_product));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle(current.getNombre());
     }
 
     @Override
@@ -171,9 +183,9 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
 
     public void initComponents() {
         current = getIntent().getParcelableExtra(PlaceFragment.ARG_PLACE);
+        images = getIntent().getStringArrayListExtra("images");
         code = getIntent().getIntExtra("code", -1);
-        imageLoader.load(image, current.getImagen());
-        collapsing.setTitle(current.getNombre());
+//        imageLoader.load(image, current.getImagen());
 
         if (utils.verifyVersionMoreLollipop()) {
             verifyStoragePermissions(this);
@@ -182,6 +194,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
         text_description.setText(current.getDescripcion());
         text_direccion.setText(current.getDireccion());
         text_telefono.setText(current.getTelefono());
+        initSlider();
     }
 
     private void initInjection() {
@@ -192,5 +205,33 @@ public class DetailActivity extends AppCompatActivity implements DetailView{
     public void onBackPressed() {
         setResult(code);
         super.onBackPressed();
+    }
+
+    private void initSlider(){
+        HashMap<String,String> url_maps = new HashMap<String, String>();
+        for(int i=0; i<images.size(); i++){
+            url_maps.put(current.getNombre(), images.get(i));
+        }
+
+        for(String name : url_maps.keySet()){
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(url_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.Fit);
+//                    .setOnSliderClickListener(this);
+
+            //add your extra information
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra",name);
+            mDemoSlider.addSlider(textSliderView);
+        }
+
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
+        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+        mDemoSlider.setDuration(4000);
     }
 }

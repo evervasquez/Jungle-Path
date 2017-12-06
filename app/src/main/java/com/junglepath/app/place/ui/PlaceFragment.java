@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,9 @@ import com.junglepath.app.detail.ui.DetailActivity;
 import com.junglepath.app.place.OnItemClickListener;
 import com.junglepath.app.place.PlacePresenter;
 import com.junglepath.app.place.ui.adapters.PlaceAdapter;
+
+import java.util.List;
+
 import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -93,6 +97,7 @@ public class PlaceFragment extends Fragment implements PlaceView, OnItemClickLis
     private void navigationToDetail(Place place){
         Intent intent = new Intent(getActivity(), DetailActivity.class);
         intent.putExtra(ARG_PLACE, place);
+        intent.putStringArrayListExtra("images", place.getImagenes());
         intent.putExtra("code", FRAGMENT_TO_DETAIL);
         startActivityForResult(intent, FRAGMENT_TO_DETAIL);
     }
